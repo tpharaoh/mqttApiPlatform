@@ -14,6 +14,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 //use App\Mosquitto\Client;
 //use \Mosquitto\Message;
 use PhpMqtt\Client\MQTTClient;
+use Symfony\Component\Mercure\Publisher;
+use Symfony\Component\Mercure\PublisherInterface;
+use Symfony\Component\Mercure\Update;
+
 /**
  * Class MainMQTTLoopCommand
  *
@@ -27,10 +31,15 @@ class MainMQTTLoopCommand extends Command
      * @var EntityManagerInterface
      */
     private $em;
+    /**
+     * @var PublisherInterface
+     */
+    private $pub;
 
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em,PublisherInterface $publisher)
     {
         $this->em=$em;
+        $this->pub=$publisher;
         parent::__construct();
     }
 
@@ -58,8 +67,17 @@ class MainMQTTLoopCommand extends Command
             $telemetry->setReceivedData($message);
             $this->em->persist($telemetry);
             $this->em->flush();
+
+            $publish= new Publisher();
+            $update = new Update(
+                $topic,$message
+            );
+            $publish($update);
+
+
             echo sprintf("Received message on topic [%s]: %s\n", $topic, $message);
         }, 0);
+
 
         $client->loop(true);
 

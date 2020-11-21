@@ -7,7 +7,7 @@ use App\Repository\TelemetryRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
+ * @ApiResource(mercure=true)
  * @ORM\Entity(repositoryClass=TelemetryRepository::class)
  */
 class Telemetry
