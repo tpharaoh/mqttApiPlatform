@@ -11,24 +11,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfafb287-748e-4b12-9d21-14a3c9c515f0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mqtt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mqtt.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Interfaces/SMSProviderInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utility/Nexmo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utility/TelefonicaSMS.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_test_publish/local.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_test_publish/local.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Command/MainMQTTLoopCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/MainMQTTLoopCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Telemetry.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Telemetry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -139,6 +137,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -149,7 +148,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605984502421</updated>
-      <workItem from="1605984503736" duration="4145000" />
+      <workItem from="1605984503736" duration="4246000" />
+      <workItem from="1606067457578" duration="3971000" />
+      <workItem from="1606141976673" duration="4088000" />
     </task>
     <servers />
   </component>
@@ -166,8 +167,21 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2628" y="197" key="#com.intellij.ide.util.MemberChooser" timestamp="1606142151070">
+      <screen x="1792" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2628" y="197" key="#com.intellij.ide.util.MemberChooser/0.23.1792.1040/1792.23.1920.1057@1792.23.1920.1057" timestamp="1606142151070" />
+    <state x="2556" y="270" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606142523254">
+      <screen x="1792" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2556" y="270" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1792.1040/1792.23.1920.1057@1792.23.1920.1057" timestamp="1606142523254" />
+    <state x="2591" y="241" key="NewPhpClassDialog" timestamp="1606142102485">
+      <screen x="1792" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2591" y="241" key="NewPhpClassDialog/0.23.1792.1040/1792.23.1920.1057@1792.23.1920.1057" timestamp="1606142102485" />
     <state x="2486" y="236" width="670" height="676" key="search.everywhere.popup" timestamp="1605985799061">
       <screen x="1792" y="23" width="1920" height="1057" />
     </state>
