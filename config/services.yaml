@@ -4,6 +4,9 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    SMS_KEY: "%env(SMS_KEY)%"
+    SMS_TOKEN: "%env(SMS_TOKEN)%"
+    SMS_SENDER: "%env(SMS_SENDER)%"
 
 services:
     # default configuration for services in *this* file

@@ -2,8 +2,10 @@ creds.txt
 mqtt.zip
 .env
 .idea
+README.md
 ###> symfony/framework-bundle ###
 /.env.local
+/node_test_publish/node_modules
 /.env.local.php
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
