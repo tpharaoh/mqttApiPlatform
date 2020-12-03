@@ -3,6 +3,7 @@ mqtt.zip
 .env
 .idea
 README.md
+Samples.md
 ###> symfony/framework-bundle ###
 /.env.local
 /node_test_publish/node_modules
