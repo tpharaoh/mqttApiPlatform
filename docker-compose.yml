@@ -1,12 +1,12 @@
 version: '3'
 services:
-#  database:
-#    image: postgres:11-alpine
-#    environment:
-#      POSTGRES_USER: mqtt
-#      POSTGRES_PASSWORD: mqtt
-#      POSTGRESDB: mytt
-#    ports: [5433:5432]
+  database:
+    image: postgres:11-alpine
+    environment:
+      POSTGRES_USER: mqtt
+      POSTGRES_PASSWORD: mqtt
+      POSTGRESDB: mytt
+    ports: [5433:5432]
 #  mercure:
 #    container_name: mercureIOT
 #    image: dunglas/mercure
@@ -31,15 +31,15 @@ services:
       # admin / public
       - '18083:18083'
 
-  emqttd2:
-    image: emqx/emqx
-    ports:
-      - '1884:1883'
-      # admin / public
-      - '18084:18083'
-  emqttd3:
-    image: emqx/emqx
-    ports:
-      - '1885:1883'
-      # admin / public
-      - '18085:18083'
+#  emqttd2:
+#    image: emqx/emqx
+#    ports:
+#      - '1884:1883'
+#      # admin / public
+#      - '18084:18083'
+#  emqttd3:
+#    image: emqx/emqx
+#    ports:
+#      - '1885:1883'
+#      # admin / public
+#      - '18085:18083'
