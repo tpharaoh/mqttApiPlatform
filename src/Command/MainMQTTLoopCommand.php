@@ -69,45 +69,6 @@ class MainMQTTLoopCommand extends Command
             echo sprintf("Received message on topic [%s]: %s\n", $topic, $message);
             $this->bus->dispatch(new SaveDeviceTelemetry($topic,$message));
 
-//            $telemetryValue=json_decode($message,true);
-//            $device=explode('/',$topic);
-//            $device=end($device);
-//var_dump($telemetryValue);
-
-
-
-                        //check trigger
-//            $trigger = $this->triggerRepository->findOneByDevice($device);
-//            if($trigger){
-//                if($telemetryValue<$trigger->getLowValue()){
-//                    $sms=new Nexmo();
-//                    $sms->setCredentials($this->params->get('SMS_KEY'),$this->params->get('SMS_TOKEN'));
-//                    //echo $sms->sendSMS($this->params->get('SMS_SENDER'),'306945551234','value too low');
-//                }
-//                if($telemetryValue>$trigger->getHighValue()){
-//                    $sms=new Nexmo();
-//                    $sms->setCredentials($this->params->get('SMS_KEY'),$this->params->get('SMS_TOKEN'));
-//                    //echo $sms->sendSMS($this->params->get('SMS_SENDER'),'306945551234','value too high');
-//                }
-//
-//            }
-
-//            $date_key=date('U');
-//            $telemetry[$date_key] = new Telemetry();
-//            $telemetry[$date_key]->setDevice($device);
-//            $telemetry[$date_key]->setReceivedData($message);
-//            $this->em->persist($telemetry[$date_key]);
-//            $this->em->flush();
-
-
-//            the following sends on Mercure
-//            $publish= new Publisher();
-//            $update = new Update(
-//                $topic,$message
-//            );
-//            $publish($update);
-
-
         }, 0);
 
         //QOS 0 prevents a cluster from reading on each instance in a queue

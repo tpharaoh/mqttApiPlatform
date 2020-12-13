@@ -70,9 +70,15 @@ class Device
      */
     private $telemetries;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Trigger::class, mappedBy="device")
+     */
+    private $triggers;
+
     public function __construct()
     {
         $this->telemetries = new ArrayCollection();
+        $this->triggers = new ArrayCollection();
     }
 
     public function getId()
@@ -140,6 +146,36 @@ class Device
             // set the owning side to null (unless already changed)
             if ($telemetry->getDevice() === $this) {
                 $telemetry->setDevice(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Trigger[]
+     */
+    public function getTriggers(): Collection
+    {
+        return $this->triggers;
+    }
+
+    public function addTrigger(Trigger $trigger): self
+    {
+        if (!$this->triggers->contains($trigger)) {
+            $this->triggers[] = $trigger;
+            $trigger->setDevice($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTrigger(Trigger $trigger): self
+    {
+        if ($this->triggers->removeElement($trigger)) {
+            // set the owning side to null (unless already changed)
+            if ($trigger->getDevice() === $this) {
+                $trigger->setDevice(null);
             }
         }
 

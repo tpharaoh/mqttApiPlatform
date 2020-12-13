@@ -22,11 +22,6 @@ class Trigger
     /**
      * @ORM\Column(type="string", length=20)
      */
-    private $device;
-
-    /**
-     * @ORM\Column(type="string", length=20)
-     */
     private $telemetryKey;
 
     /**
@@ -39,22 +34,17 @@ class Trigger
      */
     private $lowValue;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Device::class, inversedBy="triggers")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $device;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getDevice(): ?string
-    {
-        return $this->device;
-    }
-
-    public function setDevice(string $device): self
-    {
-        $this->device = $device;
-
-        return $this;
-    }
 
     public function getTelemetryKey(): ?string
     {
@@ -88,6 +78,18 @@ class Trigger
     public function setLowValue(int $lowValue): self
     {
         $this->lowValue = $lowValue;
+
+        return $this;
+    }
+
+    public function getDevice(): ?Device
+    {
+        return $this->device;
+    }
+
+    public function setDevice(?Device $device): self
+    {
+        $this->device = $device;
 
         return $this;
     }

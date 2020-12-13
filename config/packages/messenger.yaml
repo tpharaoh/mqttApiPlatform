@@ -10,5 +10,6 @@ framework:
             # sync: 'sync://'
 
         routing:
-            # Route your messages to the transports
-             'App\Message\SaveDeviceTelemetry': async
+            App\Message\CheckTriggers: async            # Route your messages to the transports
+            App\Message\SaveDeviceTelemetry: async
+            App\Message\MercurePublish: async
