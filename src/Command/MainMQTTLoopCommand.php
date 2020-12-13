@@ -78,12 +78,12 @@ var_dump($telemetryValue);
 //                if($telemetryValue<$trigger->getLowValue()){
 //                    $sms=new Nexmo();
 //                    $sms->setCredentials($this->params->get('SMS_KEY'),$this->params->get('SMS_TOKEN'));
-//                    //echo $sms->sendSMS($this->params->get('SMS_SENDER'),'306945825258','value too low');
+//                    //echo $sms->sendSMS($this->params->get('SMS_SENDER'),'306945551234','value too low');
 //                }
 //                if($telemetryValue>$trigger->getHighValue()){
 //                    $sms=new Nexmo();
 //                    $sms->setCredentials($this->params->get('SMS_KEY'),$this->params->get('SMS_TOKEN'));
-//                    //echo $sms->sendSMS($this->params->get('SMS_SENDER'),'306945825258','value too high');
+//                    //echo $sms->sendSMS($this->params->get('SMS_SENDER'),'306945551234','value too high');
 //                }
 //
 //            }
@@ -96,7 +96,7 @@ var_dump($telemetryValue);
             $this->em->flush();
 
 
-//var_dump( $telemetry);
+//            the following sends on Mercure
 //            $publish= new Publisher();
 //            $update = new Update(
 //                $topic,$message
@@ -106,6 +106,7 @@ var_dump($telemetryValue);
 
         }, 0);
 
+        //QOS 0 prevents a cluster from reading on each instance in a queue
 
         $client->loop(true);
 

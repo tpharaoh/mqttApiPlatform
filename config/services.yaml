@@ -7,6 +7,9 @@ parameters:
     SMS_KEY: "%env(SMS_KEY)%"
     SMS_TOKEN: "%env(SMS_TOKEN)%"
     SMS_SENDER: "%env(SMS_SENDER)%"
+    teams.provision: '%env(TEAMS_PROVISION)%'
+    teams.device: '%env(TEAMS_DEVICE)%'
+    slack.general: '%env(SLACK_GENERAL)%'
 
 services:
     # default configuration for services in *this* file
