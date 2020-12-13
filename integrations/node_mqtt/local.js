@@ -3,7 +3,7 @@ var client  = mqtt.connect('mqtt://127.0.0.1:1883',{})
 console.log(client)
 client.on('connect', function () {
     console.log('connected')
-    client.publish('device/thermostat', '{"temperature":"29"}')
+    client.publish('device/e9fb83f6-08ab-4f18-934c-21edbc1a13e0', '{"temperature":"32"}')
 
 })
 

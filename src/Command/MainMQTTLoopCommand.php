@@ -3,6 +3,7 @@
 
 namespace App\Command;
 
+use App\Message\SaveDeviceTelemetry;
 use Psr\Log\LoggerInterface;
 
 use App\Entity\Telemetry;
@@ -17,6 +18,8 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Mercure\Publisher;
 use Symfony\Component\Mercure\PublisherInterface;
 use Symfony\Component\Mercure\Update;
+use Symfony\Component\Messenger\MessageBus;
+use Symfony\Component\Messenger\MessageBusInterface;
 
 /**
  * Class MainMQTTLoopCommand
@@ -40,13 +43,9 @@ class MainMQTTLoopCommand extends Command
      */
     private $params;
 
-    public function __construct(EntityManagerInterface $em,PublisherInterface $publisher,TriggerRepository $triggerRepository,LoggerInterface $logger,ParameterBagInterface $params)
+    public function __construct(MessageBusInterface $bus)
     {
-        $this->em=$em;
-        $this->log=$logger;
-        $this->triggerRepository=$triggerRepository;
-        $this->pub=$publisher;
-        $this->params=$params;
+        $this->bus=$bus;
         parent::__construct();
     }
 
@@ -66,12 +65,17 @@ class MainMQTTLoopCommand extends Command
         $client = new MQTTClient('127.0.0.1','1883');
         $client->connect();
 
-        $client->subscribe('v1/#', function ($topic, $message) use ($output) {
+        $client->subscribe('device/#', function ($topic, $message) use ($output) {
             echo sprintf("Received message on topic [%s]: %s\n", $topic, $message);
-            $telemetryValue=json_decode($message,true);
-            $device=explode('/',$topic);
-            $device=end($device);
-var_dump($telemetryValue);
+            $this->bus->dispatch(new SaveDeviceTelemetry($topic,$message));
+
+//            $telemetryValue=json_decode($message,true);
+//            $device=explode('/',$topic);
+//            $device=end($device);
+//var_dump($telemetryValue);
+
+
+
                         //check trigger
 //            $trigger = $this->triggerRepository->findOneByDevice($device);
 //            if($trigger){
@@ -88,12 +92,12 @@ var_dump($telemetryValue);
 //
 //            }
 
-            $date_key=date('U');
-            $telemetry[$date_key] = new Telemetry();
-            $telemetry[$date_key]->setDevice($device);
-            $telemetry[$date_key]->setReceivedData($message);
-            $this->em->persist($telemetry[$date_key]);
-            $this->em->flush();
+//            $date_key=date('U');
+//            $telemetry[$date_key] = new Telemetry();
+//            $telemetry[$date_key]->setDevice($device);
+//            $telemetry[$date_key]->setReceivedData($message);
+//            $this->em->persist($telemetry[$date_key]);
+//            $this->em->flush();
 
 
 //            the following sends on Mercure

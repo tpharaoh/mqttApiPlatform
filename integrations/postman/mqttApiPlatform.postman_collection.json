@@ -1,0 +1,101 @@
+{
+	"variables": [],
+	"info": {
+		"name": "mqttApiPlatform",
+		"_postman_id": "2372ce3c-d68c-1d39-f928-a1c4b532dfe8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"url": "https://127.0.0.1:8001/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"john@doe.com\",\"plainPassword\":\"12345678\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"url": "https://127.0.0.1:8001/authentication_token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"john@doe.com\",\"password\":\"12345678\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create device",
+			"request": {
+				"url": "https://127.0.0.1:8001/api/devices",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2MDc4NzM1MTIsImV4cCI6MTYwNzg3NzExMiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiam9obkBkb2UuY29tIn0.BPesP4M3s0KSNFsRYvvkVpwDCJ1v5XJ9lJEsz8XOZcFSROahZSoh1LnBKkvTP4Jn-QW2EZKcDiqhZGzN4tjiupVPmAVIyJgCkxGDVl5U7Q1neIgOeyiaQVadwEhGFWA-cx7webQ0Qz6Iugod1jaDJ-tnCtI6QHQr8pFreBjccGTvFubYdDe5QWzmdWmulWEbKKwE5KbS9aSzpjH9IAGNWET64VEexA0MMo-_sd0YcBL6CgVCbVwcEVEbmRtD7txOP5KGGswYeNvFLVrACPE8JplSrcTb2bgEP3M0q9RbFhYY3cjwyN5I7J-LpVM5x5SoPD9XQN3hAfQbtHzlVHokwaBs4Ixvgz6GIq-yRI4hSWpD7bz02Wg5e4MlhbKds3p2LVBk05CNnlw1KQyWXnXOwyxybPbD3Dcozlf53shWU3nZwMVuVOAeGMdgbGQSX6egH5z_M7WF-TZTOK3xdPoxspnEdtoRRaHg4LZahlnv-gZpD4jN3l1e7gLMtR3Z7ducRtgT_Mf89Fit6jv6eOrVsfE-uJ4VqwfwIF5kHHHU-1TmHy9Qo-8eS0zNd3MQH7pCLOa3OQfM4kSoVvkePQkqr3E4SBhNHcbq9oPd0f5T7ZvHsj7xkLSGmYLI3Zx3hAKMYPDaZ1MRrMcSNlQueLm22rcEP1Uim-ZJkY3i3G6pZ2I",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"livingRoom1\",\"deviceType\":\"temperature\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Device",
+			"request": {
+				"url": "https://127.0.0.1:8001/api/devices/d6add7e3-037a-4fb3-8980-b794f81e627a",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2MDc4NzM1MTIsImV4cCI6MTYwNzg3NzExMiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiam9obkBkb2UuY29tIn0.BPesP4M3s0KSNFsRYvvkVpwDCJ1v5XJ9lJEsz8XOZcFSROahZSoh1LnBKkvTP4Jn-QW2EZKcDiqhZGzN4tjiupVPmAVIyJgCkxGDVl5U7Q1neIgOeyiaQVadwEhGFWA-cx7webQ0Qz6Iugod1jaDJ-tnCtI6QHQr8pFreBjccGTvFubYdDe5QWzmdWmulWEbKKwE5KbS9aSzpjH9IAGNWET64VEexA0MMo-_sd0YcBL6CgVCbVwcEVEbmRtD7txOP5KGGswYeNvFLVrACPE8JplSrcTb2bgEP3M0q9RbFhYY3cjwyN5I7J-LpVM5x5SoPD9XQN3hAfQbtHzlVHokwaBs4Ixvgz6GIq-yRI4hSWpD7bz02Wg5e4MlhbKds3p2LVBk05CNnlw1KQyWXnXOwyxybPbD3Dcozlf53shWU3nZwMVuVOAeGMdgbGQSX6egH5z_M7WF-TZTOK3xdPoxspnEdtoRRaHg4LZahlnv-gZpD4jN3l1e7gLMtR3Z7ducRtgT_Mf89Fit6jv6eOrVsfE-uJ4VqwfwIF5kHHHU-1TmHy9Qo-8eS0zNd3MQH7pCLOa3OQfM4kSoVvkePQkqr3E4SBhNHcbq9oPd0f5T7ZvHsj7xkLSGmYLI3Zx3hAKMYPDaZ1MRrMcSNlQueLm22rcEP1Uim-ZJkY3i3G6pZ2I",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"livingRoom1\",\"deviceType\":\"temperature\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

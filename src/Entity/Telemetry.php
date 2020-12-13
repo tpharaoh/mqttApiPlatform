@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator;
 
 /**
- * @ApiResource(mercure=true)
+ * @ApiResource()
  * @ORM\Entity(repositoryClass=TelemetryRepository::class)
  */
 class Telemetry
@@ -24,9 +24,9 @@ class Telemetry
 
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="json")
      */
-    private $receivedData;
+    private $receivedData=[];
 
     /**
      * @ORM\ManyToOne(targetEntity=Owner::class)
@@ -39,19 +39,19 @@ class Telemetry
      */
     private $device;
 
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
 
 
 
-    public function getReceivedData(): ?string
+    public function getReceivedData(): ?array
     {
         return $this->receivedData;
     }
 
-    public function setReceivedData(string $receivedData): self
+    public function setReceivedData(array $receivedData): self
     {
         $this->receivedData = $receivedData;
 
