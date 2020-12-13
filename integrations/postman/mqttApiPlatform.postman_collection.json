@@ -55,7 +55,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2MDc4NzM1MTIsImV4cCI6MTYwNzg3NzExMiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiam9obkBkb2UuY29tIn0.BPesP4M3s0KSNFsRYvvkVpwDCJ1v5XJ9lJEsz8XOZcFSROahZSoh1LnBKkvTP4Jn-QW2EZKcDiqhZGzN4tjiupVPmAVIyJgCkxGDVl5U7Q1neIgOeyiaQVadwEhGFWA-cx7webQ0Qz6Iugod1jaDJ-tnCtI6QHQr8pFreBjccGTvFubYdDe5QWzmdWmulWEbKKwE5KbS9aSzpjH9IAGNWET64VEexA0MMo-_sd0YcBL6CgVCbVwcEVEbmRtD7txOP5KGGswYeNvFLVrACPE8JplSrcTb2bgEP3M0q9RbFhYY3cjwyN5I7J-LpVM5x5SoPD9XQN3hAfQbtHzlVHokwaBs4Ixvgz6GIq-yRI4hSWpD7bz02Wg5e4MlhbKds3p2LVBk05CNnlw1KQyWXnXOwyxybPbD3Dcozlf53shWU3nZwMVuVOAeGMdgbGQSX6egH5z_M7WF-TZTOK3xdPoxspnEdtoRRaHg4LZahlnv-gZpD4jN3l1e7gLMtR3Z7ducRtgT_Mf89Fit6jv6eOrVsfE-uJ4VqwfwIF5kHHHU-1TmHy9Qo-8eS0zNd3MQH7pCLOa3OQfM4kSoVvkePQkqr3E4SBhNHcbq9oPd0f5T7ZvHsj7xkLSGmYLI3Zx3hAKMYPDaZ1MRrMcSNlQueLm22rcEP1Uim-ZJkY3i3G6pZ2I",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2MDc4NzczOTIsImV4cCI6MTYwNzg4MDk5Miwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiam9obkBkb2UuY29tIn0.dF_xKKkfitr9mH5mCKmR_8jaEPfZPwD0Mpwryn6_rhHraJBxjFgz-ptmCpg9i5OesdFMX2soLLzKJFn_SN2srXmDuPTMXMAInUPJRA--6TgYkYnRZSsT9eg3uqIeg-hG61xRQ9pdU-9Q4eEP_XNCKwaGwDkgguYqPf28LHGPYUJwFqNxzE87-Rp0HVenE__dfSehFFc7Y6h8CQi-OYG97zILwAhTiSIDu3oISHexp4ZP6ACOCqwpprGUhH6FeNbZtmje0dFgj_whOJR7IRJcHOX7N35rMceKE6i5wUZg8o_9LgP9rcQTr5wB_G8huj6xA-zzecQGcMI5iwMvshIrNm9fn5SNIOhEQ0kRnnLCWsPGQ1oHBx55tv3eFgiWq8eKxJ2p2xhxRYkOWCPjk6EWj7byoJg9xNW6PlWnX6df7xdl8z-mpo2ah8ziMbF4XZs2EF_bEdItXXt96HU01qeUcVqQFqQ7pyqO2qcRAqSb9o93aEGR9mDndaTtQua6R4xu2vnMN3ASRNzxtpL4QNzUhMzNSUFDU_P9bu5emMPUh8uDYEAQpMn6B5UVjsOh5gHjW8sWXGn1TmrXgU1V7LsO3VVTz8z-vCgdC-G_iwXnX-yfDRX9ZNZiRxPEag3PBc6yosS0mNIzPVvIo8z8uP9ADhwEBajxjGdPrg0x74JGP7E",
 						"description": ""
 					},
 					{
@@ -92,6 +92,31 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\"name\":\"livingRoom1\",\"deviceType\":\"temperature\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create Trigger",
+			"request": {
+				"url": "https://127.0.0.1:8001/api/triggers",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2MDc4NzczOTIsImV4cCI6MTYwNzg4MDk5Miwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiam9obkBkb2UuY29tIn0.dF_xKKkfitr9mH5mCKmR_8jaEPfZPwD0Mpwryn6_rhHraJBxjFgz-ptmCpg9i5OesdFMX2soLLzKJFn_SN2srXmDuPTMXMAInUPJRA--6TgYkYnRZSsT9eg3uqIeg-hG61xRQ9pdU-9Q4eEP_XNCKwaGwDkgguYqPf28LHGPYUJwFqNxzE87-Rp0HVenE__dfSehFFc7Y6h8CQi-OYG97zILwAhTiSIDu3oISHexp4ZP6ACOCqwpprGUhH6FeNbZtmje0dFgj_whOJR7IRJcHOX7N35rMceKE6i5wUZg8o_9LgP9rcQTr5wB_G8huj6xA-zzecQGcMI5iwMvshIrNm9fn5SNIOhEQ0kRnnLCWsPGQ1oHBx55tv3eFgiWq8eKxJ2p2xhxRYkOWCPjk6EWj7byoJg9xNW6PlWnX6df7xdl8z-mpo2ah8ziMbF4XZs2EF_bEdItXXt96HU01qeUcVqQFqQ7pyqO2qcRAqSb9o93aEGR9mDndaTtQua6R4xu2vnMN3ASRNzxtpL4QNzUhMzNSUFDU_P9bu5emMPUh8uDYEAQpMn6B5UVjsOh5gHjW8sWXGn1TmrXgU1V7LsO3VVTz8z-vCgdC-G_iwXnX-yfDRX9ZNZiRxPEag3PBc6yosS0mNIzPVvIo8z8uP9ADhwEBajxjGdPrg0x74JGP7E",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"device\":\"api/devices/e9fb83f6-08ab-4f18-934c-21edbc1a13e0\",\"telemetryKey\":\"temperature\",\"lowValue\":10,\"highValue\":30}"
 				},
 				"description": ""
 			},
