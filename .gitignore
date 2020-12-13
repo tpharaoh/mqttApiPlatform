@@ -1,7 +1,7 @@
 creds.txt
 mqtt.zip
 .env
-./integrations
+./integrations/*
 .idea
 README.md
 Samples.md
