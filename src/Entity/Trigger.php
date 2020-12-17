@@ -40,6 +40,16 @@ class Trigger
      */
     private $device;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Owner::class, inversedBy="triggers")
+     */
+    private $owner;
+
+    /**
+     * @ORM\OneToOne(targetEntity=NotificationMethod::class, cascade={"persist", "remove"})
+     */
+    private $notificationMethod;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +100,30 @@ class Trigger
     public function setDevice(?Device $device): self
     {
         $this->device = $device;
+
+        return $this;
+    }
+
+    public function getOwner(): ?Owner
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?Owner $owner): self
+    {
+        $this->owner = $owner;
+
+        return $this;
+    }
+
+    public function getNotificationMethod(): ?NotificationMethod
+    {
+        return $this->notificationMethod;
+    }
+
+    public function setNotificationMethod(?NotificationMethod $notificationMethod): self
+    {
+        $this->notificationMethod = $notificationMethod;
 
         return $this;
     }

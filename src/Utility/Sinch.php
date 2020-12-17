@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Utilities;
+namespace App\Utility;
 
 
 use Symfony\Component\HttpClient\HttpClient;

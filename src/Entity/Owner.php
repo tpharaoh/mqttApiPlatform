@@ -41,9 +41,21 @@ class Owner implements UserInterface
      */
     private $devices;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Trigger::class, mappedBy="owner")
+     */
+    private $triggers;
+
+    /**
+     * @ORM\OneToMany(targetEntity=NotificationMethod::class, mappedBy="owner", orphanRemoval=true)
+     */
+    private $notificationMethods;
+
     public function __construct()
     {
         $this->devices = new ArrayCollection();
+        $this->triggers = new ArrayCollection();
+        $this->notificationMethods = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -148,6 +160,66 @@ class Owner implements UserInterface
             // set the owning side to null (unless already changed)
             if ($device->getOwner() === $this) {
                 $device->setOwner(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Trigger[]
+     */
+    public function getTriggers(): Collection
+    {
+        return $this->triggers;
+    }
+
+    public function addTrigger(Trigger $trigger): self
+    {
+        if (!$this->triggers->contains($trigger)) {
+            $this->triggers[] = $trigger;
+            $trigger->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTrigger(Trigger $trigger): self
+    {
+        if ($this->triggers->removeElement($trigger)) {
+            // set the owning side to null (unless already changed)
+            if ($trigger->getOwner() === $this) {
+                $trigger->setOwner(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|NotificationMethod[]
+     */
+    public function getNotificationMethods(): Collection
+    {
+        return $this->notificationMethods;
+    }
+
+    public function addNotificationMethod(NotificationMethod $notificationMethod): self
+    {
+        if (!$this->notificationMethods->contains($notificationMethod)) {
+            $this->notificationMethods[] = $notificationMethod;
+            $notificationMethod->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNotificationMethod(NotificationMethod $notificationMethod): self
+    {
+        if ($this->notificationMethods->removeElement($notificationMethod)) {
+            // set the owning side to null (unless already changed)
+            if ($notificationMethod->getOwner() === $this) {
+                $notificationMethod->setOwner(null);
             }
         }
 

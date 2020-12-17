@@ -26,8 +26,14 @@ final class CheckTriggersHandler implements MessageHandlerInterface
         ]);
             if($trigger){
                 if($message->getTelemetry()[$telemetryKey[0]]<$trigger->getLowValue()){
-                    $sms=new Nexmo();
-                    $sms->setCredentials($this->params->get('SMS_KEY'),$this->params->get('SMS_TOKEN'));
+                    if($trigger->getNotificationMethod()){
+                        $className = 'App\Utility\\'.$trigger->getNotificationMethod()->getDeliveryType();
+                        $delivery = new $className();
+//                        $delivery->initiateClient();
+                        $delivery->sendNotification($trigger->getNotificationMethod()->getWebhookUrl(),'too low','temp tpp low','');
+                    }
+//                    $sms=new Nexmo();
+//                    $sms->setCredentials($this->params->get('SMS_KEY'),$this->params->get('SMS_TOKEN'));
 //                    echo $sms->sendSMS($this->params->get('SMS_SENDER'),'306945555258','value too low');
                 }
                 if($message->getTelemetry()[$telemetryKey[0]]>$trigger->getHighValue()){
